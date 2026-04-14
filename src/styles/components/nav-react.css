@@ -1,0 +1,134 @@
+.nav-react-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(0.7rem);
+  -webkit-backdrop-filter: blur(0.7rem);
+  width: fit-content;
+  margin-inline: auto;
+  padding-block: 0.75rem;
+  border-radius: 1rem;
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding-inline: 1.5rem;
+  will-change: transform;
+}
+
+.nav-react-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+  .nav-react-logo {
+    display: none;
+  }
+}
+
+.nav-react-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-react-list__item {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.nav-react-link {
+  text-decoration: none;
+  color: #a1a1aa;
+  transition: color 0.2s;
+}
+
+.nav-react-link:hover {
+  color: #fafafa;
+}
+
+.nav-react-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-react-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+}
+
+.nav-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  background: transparent;
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-lang-switch:hover {
+  color: #fafafa;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+  .nav-react-container {
+    width: 95%;
+    max-width: 360px;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+  }
+
+  .nav-react-links {
+    gap: 1rem;
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-react-cta {
+    order: 1;
+    margin-left: auto;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .nav-lang-switch {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-react-links {
+    gap: 0.75rem;
+    font-size: 0.75rem;
+  }
+}

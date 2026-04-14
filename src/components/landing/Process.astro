@@ -1,0 +1,89 @@
+---
+// Proceso - similar a Engram How It Works
+const steps = [
+  { num: '01', key: 'process.steps.step1' },
+  { num: '02', key: 'process.steps.step2' },
+  { num: '03', key: 'process.steps.step3' },
+  { num: '04', key: 'process.steps.step4' },
+];
+---
+
+<section class="process section" id="proceso">
+  <div class="container">
+    <div class="process__header reveal">
+      <p class="eyebrow" data-i18n="process.eyebrow">Proceso</p>
+      <h2 class="display-lg"><span data-i18n="process.headline">Tres pasos hacia</span><br/><span class="gradient-text" data-i18n="process.titleAccent">tu proyecto.</span></h2>
+    </div>
+
+    <div class="process__steps">
+      {steps.map((step, i) => (
+        <div class={`process-step reveal reveal-delay-${i + 1}`}>
+          <div class="process-step__num">{step.num}</div>
+          <h3 class="process-step__title" data-i18n={`${step.key}.title`}>Charlamos</h3>
+          <p class="process-step__desc" data-i18n={`${step.key}.desc`}>Me contás tu idea, objetivo y requisitos. Sin compromiso.</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    background: var(--bg-surface);
+  }
+
+  .process__header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 5vw, 4rem);
+  }
+
+  .process__header h2 {
+    margin-top: 1rem;
+  }
+
+  .process__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .process-step__num {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .process-step__title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .process__steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .process__steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

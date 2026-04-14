@@ -1,0 +1,32 @@
+---
+// Testimonials - testimonios de clientes
+const testimonials = [
+  { quoteKey: "testimonials.quote1", name: "Juan Pérez", role: "Director, TechStart" },
+  { quoteKey: "testimonials.quote2", name: "María González", role: "CEO, E-comerce" }
+];
+---
+
+<section class="testimonials section">
+  <div class="container">
+    <div class="testimonials__header reveal">
+      <p class="eyebrow" data-i18n="testimonials.eyebrow">Testimonios</p>
+      <h2 class="display-lg"><span data-i18n="testimonials.headline">Lo que</span><span class="gradient-text" data-i18n="testimonials.titleAccent">dicen.</span></h2>
+    </div>
+
+    <div class="bento">
+      {testimonials.map((t_item, i) => (
+        <div class={`card bento__card reveal reveal-delay-${i + 1}`}>
+          <div class="bento__card-inner">
+            <div class="bento__card-text">
+              <blockquote class="bento__card-quote">"<span data-i18n={t_item.quoteKey}>Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.</span>"</blockquote>
+              <div class="bento__card-author">
+                <strong>{t_item.name}</strong>
+                <span>{t_item.role}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+.projects__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Usar نفس estilos que Services */
+.features__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.features__headline {
+  margin: 1rem 0;
+  color: var(--text-primary);
+}
+
+.projects__header h2 {
+  margin-top: 1rem;
+  color: var(--text-primary);
+}
+
+@media (max-width: 500px) {
+  .bento {
+    gap: 1rem;
+  }
+}

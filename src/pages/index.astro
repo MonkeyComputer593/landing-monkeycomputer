@@ -1,0 +1,108 @@
+---
+import '@fontsource/geist/400.css';
+import '@fontsource/geist/500.css';
+import '@fontsource/geist/600.css';
+import '@fontsource/geist/700.css';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
+import '../styles/landing.css';
+import '../styles/components/nav-react.css';
+
+import { translations } from '../i18n/translations';
+import Nav from '../components/react/Nav.jsx';
+import Hero from '../components/landing/Hero.astro';
+import Services from '../components/landing/Services.astro';
+import Process from '../components/landing/Process.astro';
+import Projects from '../components/landing/Projects.astro';
+import Testimonials from '../components/landing/Testimonials.astro';
+import FinalCTA from '../components/landing/FinalCTA.astro';
+import Footer from '../components/landing/Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots." />
+    <meta property="og:title" content="Monkey Computer - Software a Medida" />
+    <meta property="og:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monkey Computer - Software a Medida" />
+    <meta name="twitter:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Monkey Computer - Desarrollo de Software</title>
+    <script is:inline>
+      window.__I18N__ = {
+        translations: JSON.parse(JSON.stringify({es:translations.es, en:translations.en}))
+      };
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get('lang');
+        if (lang === 'en' || lang === 'es') {
+          document.documentElement.lang = lang;
+        }
+      })();
+    </script>
+  </head>
+  <body class="landing-body">
+    <Nav client:load />
+    <main id="main-content" style="padding-top: 5rem;">
+      <Hero />
+      <Services />
+      <Process />
+      <Projects />
+      <Testimonials />
+      <FinalCTA />
+    </main>
+    <Footer />
+
+    <button
+      id="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver arriba"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <script src="../scripts/main.js"></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        var lang = document.documentElement.lang || 'es';
+        var t = window.__I18N__.translations[lang];
+        var isEnglish = lang === 'en';
+
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          var keys = key.split('.');
+          var val = t;
+          for (var i = 0; i < keys.length; i++) {
+            val = val[keys[i]];
+          }
+          if (val) el.textContent = val;
+        });
+
+        var metaDesc = document.querySelector('meta[name="description"]');
+        var metaOgDesc = document.querySelector('meta[property="og:description"]');
+        var metaTwDesc = document.querySelector('meta[name="twitter:description"]');
+        var title = document.querySelector('title');
+
+        if (isEnglish) {
+          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Custom software development. Websites, online stores, admin panels, and chatbots.');
+          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
+          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
+          if (title) title.textContent = 'Monkey Computer - Custom Software Development';
+        }
+
+        var scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.setAttribute('aria-label', isEnglish ? 'Back to top' : 'Volver arriba');
+          scrollTopBtn.setAttribute('title', isEnglish ? 'Back to top' : 'Volver arriba');
+        }
+      });
+    </script>
+  </body>
+</html>

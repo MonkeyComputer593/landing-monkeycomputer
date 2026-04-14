@@ -1,0 +1,75 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: var(--bg-surface);
+}
+
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(99,102,241,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta__inner {
+  position: relative;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.cta .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.cta__inner h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.cta__sub {
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cta__contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cta__contact-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cta__contact-item a {
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.cta__contact-item a:hover {
+  color: var(--accent);
+}
