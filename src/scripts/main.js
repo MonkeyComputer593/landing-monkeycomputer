@@ -50,7 +50,7 @@ const addSkipLink = () => {
   skip.className = 'skip-link';
   skip.textContent = 'Saltar al contenido';
   skip.style.cssText =
-    'position:fixed;top:-100%;left:1rem;z-index:9999;padding:0.5rem 1rem;background:#6366f1;color:#fff;border-radius:6px;font-weight:600;transition:top 0.2s';
+    'position:fixed;top:-100%;left:1rem;z-index:9999;padding:0.5rem 1rem;background:#c084fc;color:#fff;border-radius:6px;font-weight:600;transition:top 0.2s';
   skip.addEventListener('focus', () => { skip.style.top = '1rem'; });
   skip.addEventListener('blur', () => { skip.style.top = '-100%'; });
   document.body.prepend(skip);

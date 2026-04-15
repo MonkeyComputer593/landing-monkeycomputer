@@ -45,6 +45,11 @@ import Footer from '../components/landing/Footer.astro';
         }
       })();
     </script>
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
   <body class="landing-body">
     <Nav client:load />
@@ -79,10 +84,14 @@ import Footer from '../components/landing/Footer.astro';
           var key = el.getAttribute('data-i18n');
           var keys = key.split('.');
           var val = t;
-          for (var i = 0; i < keys.length; i++) {
-            val = val[keys[i]];
+          try {
+            for (var i = 0; i < keys.length; i++) {
+              val = val[keys[i]];
+            }
+            if (val) el.textContent = val;
+          } catch(e) {
+            console.log('Translation error for key:', key);
           }
-          if (val) el.textContent = val;
         });
 
         var metaDesc = document.querySelector('meta[name="description"]');

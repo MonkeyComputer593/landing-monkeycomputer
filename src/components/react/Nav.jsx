@@ -1,8 +1,8 @@
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
-// Default translations
-const defaultLinks = {
+// Simple links without query params - smooth scroll works naturally
+const links = {
   es: [
     { href: "#servicios", text: "Servicios" },
     { href: "#proceso", text: "Proceso" },
@@ -17,7 +17,7 @@ const defaultLinks = {
   ]
 };
 
-const defaultCta = { es: "Cotizar", en: "Quote" };
+const ctaTexts = { es: "Cotizar", en: "Quote" };
 
 export default function Nav() {
   const { scrollY, scrollYProgress } = useScroll();
@@ -30,7 +30,6 @@ export default function Nav() {
     const currentScrollY = scrollY.get();
     const scrollDiff = currentScrollY - lastScrollY.current;
     
-    // Hide when scrolled down, show when scrolling up
     if (scrollDiff > 0 && currentScrollY > 50) {
       setIsHidden(true);
     } else if (scrollDiff < 0) {
@@ -52,8 +51,8 @@ export default function Nav() {
     window.location.href = url.toString();
   };
 
-  const links = defaultLinks[currentLang] || defaultLinks.es;
-  const ctaText = defaultCta[currentLang] || defaultCta.es;
+  const currentLinks = links[currentLang] || links.es;
+  const ctaText = ctaTexts[currentLang] || ctaTexts.es;
 
   return (
     <AnimatePresence mode="sync">
@@ -78,14 +77,14 @@ export default function Nav() {
           exit={{ opacity: 0, scale: 0.8, x: -10 }}
           transition={{ duration: 0.3 }}
         >
-          <circle cx="16" cy="16" r="14" stroke="#6366f1" strokeWidth="2"/>
-          <circle cx="11" cy="12" r="3" fill="#6366f1"/>
-          <circle cx="21" cy="12" r="3" fill="#6366f1"/>
-          <path d="M9 22c0-3 2-5 5-5s5 2 5 5" stroke="#6366f1" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="16" cy="16" r="14" stroke="#c084fc" strokeWidth="2"/>
+          <circle cx="11" cy="12" r="3" fill="#c084fc"/>
+          <circle cx="21" cy="12" r="3" fill="#c084fc"/>
+          <path d="M9 22c0-3 2-5 5-5s5 2 5 5" stroke="#c084fc" strokeWidth="2" strokeLinecap="round"/>
         </motion.svg>
 
         <motion.ul layout className="nav-react-links">
-          {links.map((link) => (
+          {currentLinks.map((link) => (
             <motion.li key={link.href} className="nav-react-list__item">
               <a href={link.href} className="nav-react-link">
                 {link.text}
