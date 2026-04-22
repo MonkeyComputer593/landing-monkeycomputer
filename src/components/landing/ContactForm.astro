@@ -1,0 +1,176 @@
+---
+---
+
+<section class="contact section" id="contacto">
+  <div class="container">
+    <div class="contact__inner reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="display-lg">
+        Hablemos<span class="gradient-text"> ahora</span>
+      </h2>
+      <p class="contact__sub">
+        Completá el formulario y te contactamos por WhatsApp.<br/>
+        Respondemos en menos de 24 horas.
+      </p>
+
+      <form class="contact__form" id="contactForm">
+        <div class="form__row">
+          <div class="form__group">
+            <label for="name" class="form__label">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form__input"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+
+          <div class="form__group">
+            <label for="email" class="form__label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form__input"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="project" class="form__label">Proyecto</label>
+          <select id="project" name="project" class="form__input" required>
+            <option value="">Seleccioná tipo de proyecto</option>
+            <option value="Web"> web</option>
+            <option value="Tienda online">Tienda online</option>
+            <option value="Sistema">Sistema / Panel</option>
+            <option value="Chatbot">Chatbot</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form__group">
+          <label for="message" class="form__label">Mensaje</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form__input form__textarea"
+            placeholder="Contame sobre tu proyecto..."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg form__submit">
+          <span>Enviar mensaje</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const project = document.getElementById('project').value;
+    const message = document.getElementById('message').value;
+
+    const texto = `Hola,%20me%20llamo%20${encodeURIComponent(name)}%20(${encodeURIComponent(email)})%20y%20quiero%20un%20proyecto%20de%20${encodeURIComponent(project)}.%20${encodeURIComponent(message)}`;
+
+    window.open(`https://wa.me/5491136000797?text=${texto}`, '_blank');
+  });
+</script>
+
+<style>
+  .contact {
+    background: var(--bg-surface);
+    padding: var(--section-py) 0;
+  }
+
+  .contact__inner {
+    max-width: 560px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .contact__sub {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Form */
+  .contact__form {
+    text-align: left;
+  }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .form__row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .form__group {
+    margin-bottom: 1rem;
+  }
+
+  .form__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .form__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--bg-base);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+  }
+
+  .form__input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .form__input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .form__textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form__submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .form__submit svg {
+    margin-left: 0.5rem;
+  }
+</style>

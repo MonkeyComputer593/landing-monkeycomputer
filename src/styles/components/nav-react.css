@@ -1,89 +1,88 @@
-.nav-react-container {
+/* ============================================
+   Navbar Sticky Fijo - Mobile First Design
+   === */
+
+/* Navbar Fixed - ALWAYS visible */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  background-color: rgba(9, 9, 11, 0.85);
-  backdrop-filter: blur(0.7rem);
-  -webkit-backdrop-filter: blur(0.7rem);
-  width: fit-content;
-  margin-inline: auto;
-  padding-block: 0.75rem;
-  border-radius: 1rem;
-  position: sticky;
-  top: 1rem;
-  z-index: 100;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding-inline: 1.5rem;
-  will-change: transform;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(9, 9, 11, 0.92);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.nav-react-logo {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
-}
-
-@media (max-width: 500px) {
-  .nav-react-logo {
-    display: none;
-  }
-}
-
-.nav-react-links {
+/* Logo */
+.nav-logo {
   display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c084fc;
+}
+
+/* Desktop Links - hidden on mobile */
+.nav-desktop {
+  display: none;
   align-items: center;
   gap: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-react-list__item {
+.nav-link {
   font-family: 'Geist', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
-}
-
-.nav-react-link {
-  text-decoration: none;
   color: #a1a1aa;
-  transition: color 0.2s;
-}
-
-.nav-react-link:hover {
-  color: #fafafa;
-}
-
-.nav-react-cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #c084fc;
-  color: #fff;
-  border-radius: 8px;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
 }
 
-.nav-react-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+.nav-link:hover {
+  color: #fafafa;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.nav-lang-switch {
-  display: inline-flex;
+/* Actions: Lang + CTA */
+.nav-actions {
+  display: flex;
   align-items: center;
-  padding: 0.4rem 0.6rem;
+  gap: 0.75rem;
+}
+
+.nav-lang {
+  padding: 0.5rem 0.75rem;
   background: transparent;
   color: #a1a1aa;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
+  border-radius: 0.5rem;
   font-family: 'Geist', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
@@ -91,44 +90,203 @@
   transition: all 0.2s;
 }
 
-.nav-lang-switch:hover {
+.nav-lang:hover {
   color: #fafafa;
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.05);
 }
 
-@media (max-width: 600px) {
-  .nav-react-container {
-    width: 95%;
-    max-width: 360px;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  background: #c084fc;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.35);
+}
+
+/* WhatsApp en navbar */
+.nav-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-whatsapp svg {
+  width: 26px;
+  height: 26px;
+}
+
+.nav-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* Hamburger Menu - visible only on mobile */
+.nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fafafa;
+  border-radius: 2px;
+  transition: all 0.25s ease-in-out;
+}
+
+.hamburger-line.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Overlay Menu */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(9, 9, 11, 0.98);
+  backdrop-filter: blur(1rem);
+}
+
+.nav-mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-mobile-link {
+  display: block;
+  width: 100%;
+  padding: 1rem 2rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fafafa;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.nav-mobile-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background: #c084fc;
+  color: #fff;
+  border-radius: 0.75rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-lang-mobile {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+  .nav-fixed {
+    padding: 0.75rem 2rem;
   }
 
-  .nav-react-links {
-    gap: 1rem;
-    order: 2;
-    width: 100%;
-    justify-content: center;
+  .nav-desktop {
+    display: flex;
   }
 
-  .nav-react-cta {
-    order: 1;
-    margin-left: auto;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+  .nav-hamburger {
+    display: none;
   }
-  
-  .nav-lang-switch {
-    margin-left: auto;
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.6rem;
   }
 }
 
-@media (max-width: 400px) {
-  .nav-react-links {
-    gap: 0.75rem;
-    font-size: 0.75rem;
+/* Large Desktop */
+@media (min-width: 1024px) {
+  .nav-fixed {
+    padding: 0.75rem 3rem;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .nav-desktop {
+    flex: 1;
+    max-width: 1000px;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
   }
 }

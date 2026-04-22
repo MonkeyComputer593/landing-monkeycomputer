@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monkey Computer - Social Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="instagram">
+  <div class="card">
+    <div class="card__gradient"></div>
+    
+    <div class="card__content">
+      <div class="card__logo">
+        <div class="card__logo-icon">M</div>
+        <span class="card__logo-text">Monkey Computer</span>
+      </div>
+      
+      <h1 class="card__title">
+        Software a<br><span>medida</span>
+      </h1>
+      
+      <p class="card__tagline">Desarrollo de software a medida</p>
+      
+      <div class="card__services">
+        <span class="card__service">Desarrollo Web</span>
+        <span class="card__service">E-commerce</span>
+        <span class="card__service">Paneles Admin</span>
+        <span class="card__service">Chatbots IA</span>
+      </div>
+      
+      <div class="card__cta">
+        <span class="card__cta-text">/monkey/</span>
+        <span class="card__cta-link">monkey.computer.ec</span>
+      </div>
+    </div>
+    
+    <div class="card__monkey">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="56" stroke="#c084fc" stroke-width="4"/>
+        <circle cx="42" cy="48" r="12" fill="#c084fc"/>
+        <circle cx="78" cy="48" r="12" fill="#c084fc"/>
+        <path d="M36 88c0-12 8-20 20-20s20 8 20 20" stroke="#c084fc" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    
+    <div class="card__dot">MIT License &copy; 2026</div>
+  </div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0a0a0b;
+      color: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(135deg, #0a0a0b 0%, #1a1a1f 50%, #0a0a0b 100%);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      padding: 60px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.5), transparent);
+    }
+
+    .card__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card__logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .card__logo-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #c084fc, #9333ea);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card__logo-text {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card__title {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .card__title span {
+      color: #c084fc;
+    }
+
+    .card__tagline {
+      font-size: 28px;
+      color: #a1a1aa;
+      margin-bottom: 40px;
+    }
+
+    .card__services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .card__service {
+      padding: 14px 24px;
+      background: rgba(192, 132, 252, 0.1);
+      border: 1px solid rgba(192, 132, 252, 0.2);
+      border-radius: 99px;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      color: #c084fc;
+    }
+
+    .card__cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card__cta-text {
+      font-size: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #71717a;
+    }
+
+    .card__cta-link {
+      padding: 16px 32px;
+      background: #c084fc;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .card__monkey {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card__monkey svg {
+      width: 320px;
+      height: 320px;
+    }
+
+    .card__dot {
+      position: absolute;
+      bottom: 60px;
+      right: 60px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #52525b;
+    }
+
+    .card__gradient {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.2) 0%, transparent 60%);
+      filter: blur(80px);
+    }
+  </style>
+</body>
+</html>

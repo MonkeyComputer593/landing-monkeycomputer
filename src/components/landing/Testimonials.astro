@@ -1,32 +1,123 @@
 ---
-// Testimonials - testimonios de clientes
-const testimonials = [
-  { quoteKey: "testimonials.quote1", name: "Juan Pérez", role: "Director, TechStart" },
-  { quoteKey: "testimonials.quote2", name: "María González", role: "CEO, E-comerce" }
-];
 ---
 
-<section class="testimonials section">
+<section class="testimonials section" id="resultados">
   <div class="container">
     <div class="testimonials__header reveal">
-      <p class="eyebrow" data-i18n="testimonials.eyebrow">Testimonios</p>
-      <h2 class="display-lg"><span data-i18n="testimonials.headline">Lo que</span><span class="gradient-text" data-i18n="testimonials.titleAccent">dicen.</span></h2>
+      <p class="eyebrow">Resultados</p>
+      <h2 class="display-lg">
+        <span>Clientes que</span><br/>
+        <span class="gradient-text">confían en nosotros.</span>
+      </h2>
     </div>
 
-    <div class="bento">
-      {testimonials.map((t_item, i) => (
-        <div class={`card bento__card reveal reveal-delay-${i + 1}`}>
-          <div class="bento__card-inner">
-            <div class="bento__card-text">
-              <blockquote class="bento__card-quote">"<span data-i18n={t_item.quoteKey}>Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.</span>"</blockquote>
-              <div class="bento__card-author">
-                <strong>{t_item.name}</strong>
-                <span>{t_item.role}</span>
-              </div>
-            </div>
-          </div>
+    <div class="testimonials__grid">
+      <div class="testimonial reveal">
+        <div class="testimonial__result">
+          <span class="testimonial__number">+50%</span>
+          <span class="testimonial__label">ventas en promedio</span>
         </div>
-      ))}
+        <p class="testimonial__text">"Transformaron notre negocio. Duplicamos ventas en 3 meses."</p>
+        <span class="testimonial__author">—  Tienda Online</span>
+      </div>
+
+      <div class="testimonial reveal reveal-delay-1">
+        <div class="testimonial__result">
+          <span class="testimonial__number">24/7</span>
+          <span class="testimonial__label">atención automática</span>
+        </div>
+        <p class="testimonial__text">"Nuestro chatbot atiende siempre. Sin perder clientes."</p>
+        <span class="testimonial__author">— Gerente</span>
+      </div>
+
+      <div class="testimonial reveal reveal-delay-2">
+        <div class="testimonial__result">
+          <span class="testimonial__number">-70%</span>
+          <span class="testimonial__label">tiempo en tareas</span>
+        </div>
+        <p class="testimonial__text">"Sistema automatizado. Nos permite enfocarnos en crecer."</p>
+        <span class="testimonial__author">— Director, Empresa de servicios</span>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .testimonials {
+    background: var(--bg-base);
+    padding: var(--section-py) 0;
+  }
+
+  .testimonials__header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .testimonials__header h2 span:first-child {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials__header h2 span:first-child {
+      display: inline;
+    }
+  }
+
+  /* Grid */
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Testimonial */
+  .testimonial {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+  }
+
+  .testimonial__result {
+    margin-bottom: 1rem;
+  }
+
+  .testimonial__number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .testimonial__label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .testimonial__text {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .testimonial__author {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+</style>
