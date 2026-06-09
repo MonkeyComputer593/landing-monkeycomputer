@@ -19,6 +19,20 @@ const projects = [
     solution: 'Tienda online con medios pagos y inventario',
     result: 'Vendiendo 24/7 automáticamente',
   },
+  {
+    tag: 'Sistema Web',
+    client: 'Estudio de Arquitectura',
+    problem: 'Necesitaban controlar inventario y facturación de proyectos',
+    solution: 'Sistema web con gestión de stock y facturación electrónica',
+    result: 'Redujeron un 60% el tiempo de administración',
+  },
+  {
+    tag: 'Página Web',
+    client: 'Inmobiliaria',
+    problem: 'Necesitaba presencia digital profesional',
+    solution: 'Web con galería de propiedades y formulario de contacto',
+    result: 'Aumento de leads y consultas online',
+  },
 ];
 ---
 
@@ -35,7 +49,11 @@ const projects = [
     <div class="cases__grid">
       {projects.map((project, index) => (
         <a href="#contacto" class={`case-card reveal ${index === 1 ? 'reveal-delay-1' : ''}`}>
-          <div class="case-card__image" style={`background-image: url('${project.image}')`}></div>
+          {project.image ? (
+            <div class="case-card__image" style={`background-image: url('${project.image}')`}></div>
+          ) : (
+            <div class="case-card__image case-card__image--placeholder"></div>
+          )}
 
           <div class="case-card__header">
             <span class="case-card__tag">{project.tag}</span>
@@ -124,6 +142,10 @@ const projects = [
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .case-card__image--placeholder {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-elevated) 100%);
   }
 
   .case-card__info {
