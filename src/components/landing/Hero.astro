@@ -1,4 +1,12 @@
 ---
+import { getTranslation, type Locale } from '../../i18n/index';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslation(locale).hero;
 ---
 
 <section class="hero" id="inicio">
@@ -6,30 +14,24 @@
 
   <div class="container">
     <div class="hero__center">
-      <!-- Badge simple -->
-      <div class="hero__badge reveal">
-      </div>
-
-      <!-- Title - ESTILO PREMIUM: corto, fuerte, orientado a negocio -->
       <h1 class="display-xl hero__title reveal">
-        <span>Sistemas digitales </span><br/>
+        <span data-i18n="hero.title">{t.title}</span><br/>
+        <span class="gradient-text" data-i18n="hero.titleAccent">{t.titleAccent}</span>
       </h1>
 
-      <!-- Subheadline - lenguaje de negocio, NO técnico -->
-      <p class="hero__desc reveal">
-     Que automatizan negocios..
+      <p class="hero__desc reveal" data-i18n="hero.desc">
+        {t.desc}
       </p>
 
-      <!-- CTAs - lenguaje de conversión -->
       <div class="hero__actions reveal">
         <a href="#contacto" class="btn btn-primary btn-lg btn-hero">
-          <span>Quiero más clientes</span>
+          <span data-i18n="hero.ctaPrimary">{t.ctaPrimary}</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
           </svg>
         </a>
         <a href="#proyectos" class="btn btn-secondary btn-lg btn-hero">
-          <span>Ver casos</span>
+          <span data-i18n="hero.ctaSecondary">{t.ctaSecondary}</span>
         </a>
       </div>
     </div>

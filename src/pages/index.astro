@@ -6,33 +6,44 @@ import '@fontsource/geist/700.css';
 import '@fontsource/geist-mono/400.css';
 import '@fontsource/geist-mono/500.css';
 import '../styles/landing.css';
+import '../styles/components/hero.css';
 import '../styles/components/nav-react.css';
+import '../styles/components/services.css';
+import '../styles/components/why-us.css';
+import '../styles/components/process.css';
+import '../styles/components/cta.css';
 
-import { translations } from '../i18n/translations';
+import { translations, type Locale } from '../i18n/translations';
+import { getLocaleFromUrl, getText } from '../i18n/index';
 import Nav from '../components/react/Nav.jsx';
 import Hero from '../components/landing/Hero.astro';
+import WhyUs from '../components/landing/WhyUs.astro';
 import Services from '../components/landing/Services.astro';
 import Projects from '../components/landing/Projects.astro';
-import Process from '../components/landing/Process.astro';
 import Testimonials from '../components/landing/Testimonials.astro';
+import Process from '../components/landing/Process.astro';
 import ContactForm from '../components/landing/ContactForm.astro';
 import Footer from '../components/landing/Footer.astro';
+
+const url = Astro.url;
+const locale: Locale = getLocaleFromUrl(url);
+const t = getText.bind(null, locale);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots." />
-    <meta property="og:title" content="Monkey Computer - Software a Medida" />
-    <meta property="og:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <meta name="description" content={t('meta.desc')} />
+    <meta property="og:title" content={t('meta.ogTitle')} />
+    <meta property="og:description" content={t('meta.ogDesc')} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Monkey Computer - Software a Medida" />
-    <meta name="twitter:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <meta name="twitter:title" content={t('meta.ogTitle')} />
+    <meta name="twitter:description" content={t('meta.ogDesc')} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Monkey Computer - Desarrollo de Software</title>
+    <title>{t('meta.title')}</title>
     <script is:inline>
       window.__I18N__ = {
         translations: JSON.parse(JSON.stringify({es:translations.es, en:translations.en}))
@@ -52,22 +63,23 @@ import Footer from '../components/landing/Footer.astro';
     </style>
   </head>
   <body class="landing-body">
-    <Nav client:load />
-    
+    <Nav client:load locale={locale} />
+
     <main id="main-content" style="padding-top: 4.5rem;">
-      <Hero />
-      <Services />
+      <Hero locale={locale} />
+      <Services locale={locale} />
+      <WhyUs locale={locale} />
       <Projects />
       <Testimonials />
-      <Process />
-      <ContactForm />
+      <Process locale={locale} />
+      <ContactForm locale={locale} />
     </main>
-    <Footer />
+    <Footer locale={locale} />
 
     <button
       id="scroll-top"
-      aria-label="Volver arriba"
-      title="Volver arriba"
+      aria-label={locale === 'en' ? 'Back to top' : 'Volver arriba'}
+      title={locale === 'en' ? 'Back to top' : 'Volver arriba'}
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="18 15 12 9 6 15"></polyline>
@@ -94,18 +106,6 @@ import Footer from '../components/landing/Footer.astro';
             console.log('Translation error for key:', key);
           }
         });
-
-        var metaDesc = document.querySelector('meta[name="description"]');
-        var metaOgDesc = document.querySelector('meta[property="og:description"]');
-        var metaTwDesc = document.querySelector('meta[name="twitter:description"]');
-        var title = document.querySelector('title');
-
-        if (isEnglish) {
-          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Custom software development. Websites, online stores, admin panels, and chatbots.');
-          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (title) title.textContent = 'Monkey Computer - Custom Software Development';
-        }
 
         var scrollTopBtn = document.getElementById('scroll-top');
         if (scrollTopBtn) {

@@ -1,0 +1,28 @@
+---
+import { getTranslation, type Locale } from '../../i18n/index';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslation(locale).whyUs;
+const items = Object.entries(t.items);
+---
+
+<section class="why-us section" id="por-que-nosotros">
+  <div class="container">
+    <div class="why-us__header reveal">
+      <p class="eyebrow" data-i18n="whyUs.eyebrow">{t.eyebrow}</p>
+    </div>
+
+    <div class="why-us__grid">
+      {items.map(([key, item], i) => (
+        <div class={`why-us__card reveal ${i > 0 ? `reveal-delay-${Math.min(i, 6)}` : ''}`}>
+          <h3 class="why-us__card-title" data-i18n={`whyUs.items.${key}.title`}>{item.title}</h3>
+          <p class="why-us__card-desc" data-i18n={`whyUs.items.${key}.desc`}>{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

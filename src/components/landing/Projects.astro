@@ -6,32 +6,48 @@ const projects = [
   {
     image: etsaatours.src,
     tag: 'Página Web',
-    client: 'ETSA Tours',
-    problem: 'Necesitaba presencia digital para captar turistas',
+    client: 'ETSAA Tours',
+    problem: 'Presencia digital para captar turistas',
     solution: 'Web profesional con diseño premium',
     result: 'Web visible y atrayendo clientes',
+    link: 'https://etsaatours.com',
+  },
+  {
+    tag: 'Página Web',
+    client: 'Barbería',
+    problem: 'No contaban con una aplicación web, para agendamiento de turnos.',
+    solution: 'Web profesional con reserva de turnos online',
+    result: 'Aumento de clientes y turnos automatizados',
   },
   {
     image: natufitness.src,
     tag: 'Tienda Online',
     client: 'Natufitness',
-    problem: 'Necesitaba vender suplementos online',
+    problem: 'Crear presencia online',
     solution: 'Tienda online con medios pagos y inventario',
     result: 'Vendiendo 24/7 automáticamente',
   },
   {
-    tag: 'Sistema Web',
-    client: 'Estudio de Arquitectura',
-    problem: 'Necesitaban controlar inventario y facturación de proyectos',
-    solution: 'Sistema web con gestión de stock y facturación electrónica',
-    result: 'Redujeron un 60% el tiempo de administración',
+    tag: 'Página Web',
+    client: 'Inmobiliaria',
+    problem: 'Mejorar las ventas mediante una aplicación web.',
+    solution: 'Web con galería de propiedades y formulario de contacto',
+    result: 'Aumento de leads y consultas online',
   },
   {
     tag: 'Página Web',
-    client: 'Inmobiliaria',
-    problem: 'Necesitaba presencia digital profesional',
-    solution: 'Web con galería de propiedades y formulario de contacto',
-    result: 'Aumento de leads y consultas online',
+    client: 'Centeno Abogados',
+    problem: 'Necesitaba un sitio serio que transmita confianza profesional',
+    solution: 'Web institucional con áreas de práctica y contacto directo',
+    result: 'Presencia profesional y nuevas consultas digitales',
+    link: 'https://www.centenoabogados.com',
+  },
+  {
+    tag: 'Sistema Web',
+    client: 'Chatbots a Medida',
+    problem: 'Empresas con atención al cliente lenta y costosa',
+    solution: 'Chatbot inteligente personalizado con IA',
+    result: 'Atención automatizada 24/7 reduciendo costos',
   },
 ];
 ---
@@ -48,7 +64,7 @@ const projects = [
 
     <div class="cases__grid">
       {projects.map((project, index) => (
-        <a href="#contacto" class={`case-card reveal ${index === 1 ? 'reveal-delay-1' : ''}`}>
+        <a href={project.link || "#contacto"} class={`case-card reveal ${index === 1 ? 'reveal-delay-1' : ''}`}>
           {project.image ? (
             <div class="case-card__image" style={`background-image: url('${project.image}')`}></div>
           ) : (

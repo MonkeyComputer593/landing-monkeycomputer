@@ -1,145 +1,37 @@
 ---
-// Servicios re posicionados en VALOR DE NEGOCIO - estilo premium Ryze
+import { getTranslation, type Locale } from '../../i18n/index';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslation(locale);
+const intro = t.servicesIntro;
+const serviceEntries = Object.entries(t.services.items);
 ---
 
 <section class="services section" id="servicios">
   <div class="container">
-    <div class="services__header reveal">
-      <p class="eyebrow">Servicios</p>
-      <h2 class="display-lg">
-        <span>Soluciones que</span><br/>
-        <span class="gradient-text">generan resultados.</span>
+    <div class="services__intro reveal">
+      <p class="eyebrow" data-i18n="servicesIntro.eyebrow">{intro.eyebrow}</p>
+      <h2 class="display-lg" data-i18n="servicesIntro.headline">
+        {intro.headline}
       </h2>
+      <p class="services__sub" data-i18n="servicesIntro.sub">{intro.sub}</p>
     </div>
 
-    <!-- Grid 2x2 estilo premium -->
+    <div class="services__header reveal">
+      <p class="eyebrow" data-i18n="services.eyebrow">{t.services.eyebrow}</p>
+    </div>
+
     <div class="services__grid">
-      <!-- Webs que convierten -->
-      <a href="#contacto" class="service-card reveal">
-        <div class="service-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Webs que convierten</h3>
-        <p class="service-card__desc">Landing pages y sitios que transforman visitantes en clientes.</p>
-      </a>
-
-      <!-- Tiendas que venden -->
-      <a href="#contacto" class="service-card reveal reveal-delay-1">
-        <div class="service-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <path d="M3 6h18M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Tiendas que venden</h3>
-        <p class="service-card__desc">E-commerce con pagos integrados y gestión automática de pedidos.</p>
-      </a>
-
-      <!-- Sistemas que automatizan -->
-      <a href="#contacto" class="service-card reveal reveal-delay-2">
-        <div class="service-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M9 9h6M9 15h6M9 12h6"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Sistemas que automatizan</h3>
-        <p class="service-card__desc">Paneles de control para gestionar clientes, inventario y ventas.</p>
-      </a>
-
-      <!-- Chatbots que venden -->
-      <a href="#contacto" class="service-card reveal reveal-delay-3">
-        <div class="service-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Chatbots que venden</h3>
-        <p class="service-card__desc">Asistentes IA que atienden 24/7 y cierran ventas por ti.</p>
-      </a>
+      {serviceEntries.map(([key, item], i) => (
+        <a href="#contacto" class={`service-card reveal ${i > 0 ? `reveal-delay-${Math.min(i, 6)}` : ''}`}>
+          <h3 class="service-card__title" data-i18n={`services.items.${key}.title`}>{item.title}</h3>
+          <p class="service-card__desc" data-i18n={`services.items.${key}.desc`}>{item.desc}</p>
+        </a>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  .services {
-    background: var(--bg-surface);
-    padding: var(--section-py) 0;
-  }
-
-  .services__header {
-    text-align: center;
-    margin-bottom: clamp(2rem, 5vw, 3rem);
-  }
-
-  .services__header h2 span:first-child {
-    display: block;
-  }
-
-  @media (min-width: 768px) {
-    .services__header h2 span:first-child {
-      display: inline;
-    }
-  }
-
-  /* Grid 2x2 - más limpio que bento */
-  .services__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 700px;
-    margin-inline: auto;
-  }
-
-  @media (min-width: 640px) {
-    .services__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  /* Service Card - estilo premium */
-  .service-card {
-    display: block;
-    padding: 1.5rem;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: 1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(192, 132, 252, 0.15);
-  }
-
-  .service-card__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--accent-soft);
-    border-radius: 0.75rem;
-    margin-bottom: 1rem;
-    color: var(--accent);
-  }
-
-  .service-card__title {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .service-card__desc {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-</style>

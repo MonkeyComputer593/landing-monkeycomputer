@@ -1,59 +1,94 @@
 export const translations = {
   es: {
     nav: {
+      inicio: "Inicio",
       servicios: "Servicios",
-      proceso: "Proceso",
       proyectos: "Proyectos",
+      proceso: "Proceso",
       contacto: "Contacto",
       cotizar: "Cotizar",
     },
     hero: {
-      badge: "Empresa de Desarrollo de Software",
-      title: "Desarrollo",
-      titleAccent: "de software.",
-      ctaPrimary: "Cotizaciones",
+      title: "Desarrolla tu negocio con una presencia digital profesional",
+      desc: "Ayudamos a emprendedores y empresas a digitalizar sus procesos mediante páginas web profesionales, tiendas online, sistemas administrativos, reservas online y soluciones empresariales desarrolladas a medida.",
+      ctaPrimary: "Solicitar cotización",
       ctaSecondary: "Ver proyectos",
     },
+    servicesIntro: {
+      eyebrow: "Qué hacemos",
+      headline:
+        "Creamos soluciones digitales que ayudan a vender más, automatizar procesos y mejorar la gestión de negocios.",
+    },
     services: {
-      eyebrow: "Servicios",
-      headline: "Automatiza tu negocio y consiga más clientes",
-      sub: "Sistemas, landing pages y automatizaciones diseñadas para vender y ahorrar tiempo.",
+      eyebrow: "Nuestros servicios",
       items: {
         paginasWeb: {
-          title: "Páginas Web",
-          desc: "Landing pages y sitios web diseñados para convertir visitantes en clientes.",
+          title: "Páginas web profesionales",
+          desc: "Diseñamos sitios web modernos, rápidos y optimizados para presentar tu negocio, generar confianza y captar nuevos clientes.",
         },
         tiendasOnline: {
-          title: "Tiendas Online",
-          desc: "E-commerce con carrito, pagos seguros y gestión de inventario integrada.",
+          title: "Tiendas online",
+          desc: "Desarrollamos tiendas virtuales para vender productos y servicios por internet con integración a WhatsApp, pagos y gestión de pedidos.",
         },
-        panelesAdmin: {
-          title: "Paneles Admin",
-          desc: "Dashboards a medida para gestionar clientes, ventas, inventario y más.",
+        sistemasEmpresariales: {
+          title: "Sistemas empresariales",
+          desc: "Creamos plataformas para controlar inventario, ventas, clientes, proveedores, compras, reportes y procesos internos.",
         },
-        chatbots: {
-          title: "Chatbots",
-          desc: "Asistentes IA para WhatsApp y web que responden 24/7 y cierran ventas.",
+        reservas: {
+          title: "Reservas y agendamiento",
+          desc: "Sistemas para barberías, consultorios, gimnasios y negocios que trabajan mediante citas o reservas.",
         },
-        appsMoviles: {
-          title: "Apps Móviles",
-          desc: "Aplicaciones nativas para iOS y Android con la mejor experiencia de usuario.",
+        automatizacion: {
+          title: "Automatización de procesos",
+          desc: "Transformamos tareas repetitivas en procesos automáticos para ahorrar tiempo y reducir errores operativos.",
         },
-        automatizaciones: {
-          title: "Automatizaciones",
-          desc: "Workflows que eliminan tareas repetitivas: encuestas, seguimientos, facturación.",
+      },
+    },
+    whyUs: {
+      eyebrow: "Por qué trabajar con nosotros",
+      items: {
+        adaptadas: {
+          title: "Soluciones adaptadas a tu negocio",
+          desc: "Cada proyecto se construye según las necesidades reales de tu empresa.",
+        },
+        tecnologia: {
+          title: "Tecnología moderna",
+          desc: "Utilizamos Laravel, Filament, Vue, Livewire, PostgreSQL, MySQL y despliegue en servidores VPS.",
+        },
+        escalabilidad: {
+          title: "Escalabilidad",
+          desc: "Nuestros sistemas pueden crecer junto con tu negocio incorporando nuevas funcionalidades cuando las necesites.",
+        },
+        soporte: {
+          title: "Soporte y acompañamiento",
+          desc: "Te ayudamos durante la implementación y después de la entrega para garantizar el correcto funcionamiento de la solución.",
         },
       },
     },
     process: {
-      eyebrow: "Proceso",
-      headline: "Tres pasos hacia",
-      titleAccent: "tu proyecto.",
+      eyebrow: "Nuestro proceso",
+      headline: "Cómo trabajamos para llevar tu proyecto al siguiente nivel",
       steps: {
-        step1: { title: "Charlamos", desc: "Me contás tu idea, objetivo y requisitos. Sin compromiso." },
-        step2: { title: "Propuesta", desc: "Te envío un presupuesto claro con plazo y entregables definidos." },
-        step3: { title: "Desarrollo", desc: "Trabajamos en equipo. Entrego avances semanales para tu approval." },
-        step4: { title: "Entrega", desc: "Proyecto listo, documentado y con soporte post-entrega incluido." },
+        step1: {
+          title: "Analizamos tu necesidad",
+          desc: "Entendemos tu negocio y detectamos oportunidades de mejora.",
+        },
+        step2: {
+          title: "Diseñamos la solución",
+          desc: "Definimos funcionalidades, procesos y objetivos.",
+        },
+        step3: {
+          title: "Desarrollamos el proyecto",
+          desc: "Construimos una solución moderna, segura y escalable.",
+        },
+        step4: {
+          title: "Implementamos y capacitamos",
+          desc: "Dejamos todo listo para que puedas comenzar a utilizarlo.",
+        },
+        step5: {
+          title: "Mejoramos continuamente",
+          desc: "Acompañamos el crecimiento de tu negocio mediante nuevas funcionalidades y soporte técnico.",
+        },
       },
     },
     projects: {
@@ -65,24 +100,39 @@ export const translations = {
       categoryChatbot: "Chatbot",
       project1: "E-commerce Moda",
       desc1: "Tienda online completa con Stripe, inventario y panel admin.",
-      desc2: "Panel de administración para startup fintech con gráficos en tiempo real.",
+      desc2:
+        "Panel de administración para startup fintech con gráficos en tiempo real.",
       desc3: "Bot de atención al cliente integrado con WhatsApp Business API.",
     },
     testimonials: {
       eyebrow: "Testimonios",
       headline: "Lo que",
       titleAccent: "dicen.",
-      quote1: "Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.",
-      quote2: "Entendió exactamente lo que necesitaba. El chatbot incrementó nuestro soporte en un 40%.",
+      quote1:
+        "Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.",
+      quote2:
+        "Entendió exactamente lo que necesitaba. El chatbot incrementó nuestro soporte en un 40%.",
     },
     cta: {
+      closingPhrase:
+        "Menos procesos manuales. Más control, más productividad y más crecimiento para tu negocio.",
       eyebrow: "Contacto",
-      headline: "¿Listo para",
-      titleAccent: "empezar?",
-      sub: "Cuéntame tu proyecto y te envío un presupuesto sin compromiso. Respondemos en menos de 24 horas.",
+      headline: "¿Listo para digitalizar tu empresa?",
+      sub: "Conversemos sobre tu proyecto y construyamos una solución a tu medida.",
       button: "Enviar mensaje",
       emailLabel: "Email",
-      email: "tu@email.com",
+      nameLabel: "Nombre",
+      namePlaceholder: "Tu nombre",
+      emailPlaceholder: "tu@email.com",
+      projectLabel: "Proyecto",
+      projectPlaceholder: "Seleccioná tipo de proyecto",
+      projectWeb: "Página web",
+      projectStore: "Tienda online",
+      projectSystem: "Sistema / Panel",
+      projectOther: "Otro",
+      messageLabel: "Mensaje",
+      messagePlaceholder: "Contame sobre tu proyecto...",
+      whatsapp: "Escribinos por WhatsApp",
     },
     footer: {
       tagline: "Desarrollo de software a medida.",
@@ -107,62 +157,115 @@ export const translations = {
       es: "Español",
       en: "English",
     },
+    meta: {
+      title: "Monkey Computer — Desarrollo de Software",
+      desc: "Monkey Computer — Desarrollo de software a medida. Páginas web, tiendas online, sistemas empresariales y facturación electrónica en Ecuador.",
+      ogTitle: "Monkey Computer — Software a Medida",
+      ogDesc:
+        "Desarrollo de páginas web profesionales, tiendas online, sistemas empresariales y facturación electrónica SRI.",
+    },
   },
+
   en: {
     nav: {
+      inicio: "Home",
       servicios: "Services",
-      proceso: "Process",
       proyectos: "Projects",
+      proceso: "Process",
       contacto: "Contact",
       cotizar: "Quote",
     },
     hero: {
-      badge: "Software Development Company",
-      title: "Custom",
-      titleAccent: "software.",
+      title: "We build websites, online stores",
+      titleAccent: "and business systems to grow your company",
+      desc: "We help entrepreneurs and businesses digitize their processes through professional websites, online stores, administrative systems, online booking, and custom business solutions.",
       ctaPrimary: "Get a Quote",
       ctaSecondary: "View Projects",
     },
+    servicesIntro: {
+      eyebrow: "What We Do",
+      headline:
+        "We create digital solutions that help you sell more, automate processes, and improve business management.",
+      sub: "From a corporate website to a complete inventory and electronic invoicing system, we develop tools tailored to each client's needs.",
+    },
     services: {
-      eyebrow: "Services",
-      headline: "Automate your business and get more customers",
-      sub: "Systems, landing pages, and automations designed to sell and save time.",
+      eyebrow: "Our Services",
       items: {
         paginasWeb: {
-          title: "Websites",
-          desc: "Landing pages and websites designed to convert visitors into customers.",
+          title: "Professional Websites",
+          desc: "We design modern, fast, optimized websites to showcase your business, build trust, and attract new clients.",
         },
         tiendasOnline: {
           title: "Online Stores",
-          desc: "E-commerce with cart, secure payments, and integrated inventory management.",
+          desc: "We build virtual stores to sell products and services online with WhatsApp integration, payments, and order management.",
         },
-        panelesAdmin: {
-          title: "Admin Panels",
-          desc: "Custom dashboards to manage clients, sales, inventory, and more.",
+        sistemasEmpresariales: {
+          title: "Business Systems",
+          desc: "We create platforms to manage inventory, sales, clients, suppliers, purchases, reports, and internal processes.",
         },
-        chatbots: {
-          title: "Chatbots",
-          desc: "AI assistants for WhatsApp and web that respond 24/7 and close sales.",
+        facturacionSRI: {
+          title: "SRI Electronic Invoicing",
+          desc: "We implement solutions for electronic document issuance and tax process automation in Ecuador.",
         },
-        appsMoviles: {
-          title: "Mobile Apps",
-          desc: "Native apps for iOS and Android with the best user experience.",
+        reservas: {
+          title: "Booking & Scheduling",
+          desc: "Systems for barbershops, clinics, gyms, and businesses that work with appointments or reservations.",
         },
-        automatizaciones: {
-          title: "Automations",
-          desc: "Workflows that eliminate repetitive tasks: surveys, follow-ups, invoicing.",
+        garantiasQR: {
+          title: "QR Warranty System",
+          desc: "Warranty tracking with unique QR codes, digital certificates, and public consultation for clients.",
+        },
+        automatizacion: {
+          title: "Process Automation",
+          desc: "We turn repetitive tasks into automated processes to save time and reduce operational errors.",
+        },
+      },
+    },
+    whyUs: {
+      eyebrow: "Why Work With Us",
+      items: {
+        adaptadas: {
+          title: "Tailored Solutions",
+          desc: "Every project is built according to your business's real needs.",
+        },
+        tecnologia: {
+          title: "Modern Technology",
+          desc: "We use Laravel, Filament, Vue, Livewire, PostgreSQL, MySQL, and VPS server deployment.",
+        },
+        escalabilidad: {
+          title: "Scalability",
+          desc: "Our systems grow with your business, adding new features as you need them.",
+        },
+        soporte: {
+          title: "Support & Guidance",
+          desc: "We help you during implementation and after delivery to ensure your solution runs smoothly.",
         },
       },
     },
     process: {
-      eyebrow: "Process",
-      headline: "Three steps to",
-      titleAccent: "your project.",
+      eyebrow: "Our Process",
+      headline: "How we work to take your project to the next level",
       steps: {
-        step1: { title: "Let's Talk", desc: "Tell me your idea, goals, and requirements. No commitment." },
-        step2: { title: "Proposal", desc: "I'll send you a clear quote with timeline and deliverables." },
-        step3: { title: "Development", desc: "We work together. I deliver weekly progress for your approval." },
-        step4: { title: "Delivery", desc: "Project ready, documented, with post-delivery support included." },
+        step1: {
+          title: "We Analyze Your Needs",
+          desc: "We understand your business and identify opportunities for improvement.",
+        },
+        step2: {
+          title: "We Design the Solution",
+          desc: "We define features, processes, and goals.",
+        },
+        step3: {
+          title: "We Develop the Project",
+          desc: "We build a modern, secure, and scalable solution.",
+        },
+        step4: {
+          title: "We Implement & Train",
+          desc: "We set everything up so you can start using it right away.",
+        },
+        step5: {
+          title: "We Continuously Improve",
+          desc: "We support your business growth with new features and technical support.",
+        },
       },
     },
     projects: {
@@ -181,21 +284,35 @@ export const translations = {
       eyebrow: "Testimonials",
       headline: "What clients",
       titleAccent: "say.",
-      quote1: "Excellent work. Delivered before expected with quality above what was agreed.",
-      quote2: "Exactly understood what I needed. The chatbot increased our support by 40%.",
+      quote1:
+        "Excellent work. Delivered before expected with quality above what was agreed.",
+      quote2:
+        "Exactly understood what I needed. The chatbot increased our support by 40%.",
     },
     cta: {
+      closingPhrase:
+        "Less manual processes. More control, more productivity, and more growth for your business.",
       eyebrow: "Contact",
-      headline: "Ready to",
-      titleAccent: "start?",
-      sub: "Tell me about your project and I'll send you a quote with no commitment. We respond in under 24 hours.",
+      headline: "Ready to digitize your business?",
+      sub: "Let's talk about your project and build a solution tailored to you.",
       button: "Send message",
       emailLabel: "Email",
-      email: "your@email.com",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "your@email.com",
+      projectLabel: "Project",
+      projectPlaceholder: "Select project type",
+      projectWeb: "Website",
+      projectStore: "Online Store",
+      projectSystem: "System / Panel",
+      projectOther: "Other",
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me about your project...",
+      whatsapp: "Write us on WhatsApp",
     },
     footer: {
       tagline: "Custom software development.",
-      credit: "Your project, my code.",
+      credit: "Your project, our code.",
       servicios: "Services",
       desarrolloWeb: "Web Development",
       ecommerce: "E-commerce",
@@ -215,6 +332,13 @@ export const translations = {
       switch: "Language",
       es: "Español",
       en: "English",
+    },
+    meta: {
+      title: "Monkey Computer — Software Development",
+      desc: "Monkey Computer — Custom software development. Websites, online stores, business systems, and electronic invoicing in Ecuador.",
+      ogTitle: "Monkey Computer — Custom Software",
+      ogDesc:
+        "Professional websites, online stores, business systems, and SRI electronic invoicing.",
     },
   },
 };
